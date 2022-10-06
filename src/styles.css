@@ -7,7 +7,7 @@ body {
 }
 
 h3 {
-  font-family: "Roboto";
+  font-family: "Roboto Mono", monospace;
 }
 
 footer {
@@ -63,22 +63,25 @@ button:hover {
 }
 
 .currentCity {
-  font-family: "Roboto";
-  font-size: 40px;
+  font-family: "Roboto Mono", monospace;
+  font-size: 50px;
 }
 
 .currentTemp {
-  font-family: "Roboto";
+  font-family: "Roboto Mono", monospace;
   font-size: 60px;
 }
 .wind {
-  font-family: "Roboto";
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 .humidity {
-  font-family: "Roboto";
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 .weather {
-  font-family: "Roboto";
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 .about {

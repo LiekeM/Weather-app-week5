@@ -1,4 +1,4 @@
-const apiKey = "7059cb165caa3316bff682d263a01b1e";
+let apiKey = "7059cb165caa3316bff682d263a01b1e";
 
 function displayWeather(response) {
   let cityElement = document.querySelector("#current-city");
