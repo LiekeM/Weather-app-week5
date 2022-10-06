@@ -48,6 +48,7 @@ button:hover {
   width: 150px;
   height: 50px;
   border: none;
+  border-radius: 10px;
   background: #00cc00;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
@@ -96,15 +97,9 @@ button:hover {
 }
 
 .emoji {
+  font-family: "DynaPuff", cursive;
   font-size: 65px;
-}
-
-.btn {
-  margin-bottom: 20px;
-}
-
-.btn-group {
-  margin: 20px;
+  color: #232d37;
 }
 
 .container {
