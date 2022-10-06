@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+
+  <body>
+    <div id="app"></div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App 🌈</title>
+    <link href="src/styles.css" rel="stylesheet" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@500&family=Roboto+Mono:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="header">What should I wear</h1>
+
+      <div id="current-city" class="currentCity">City</div>
+      <h3 id="current-time" class="currentTime">Sunday 00:00</h3>
+      <div id="current-temp" class="currentTemp">
+        °C
+        <a href="#" id="fahrenheit"></a>
+      </div>
+      <br />
+      <div id="weather" class="weather">Weather</div>
+      <div id="wind" class="wind">Wind speed</div>
+      <div id="humidity" class="humidity">Humidity</div>
+
+      <div class="emoji">🌈</div>
+
+      <form id="city-form" action="/action_page.php">
+        <input
+          type="text"
+          id="input-city"
+          placeholder="enter city"
+        /><br /><br />
+        <input type="submit" name="submit" value="Search" id="submit" />
+      </form>
+      <br />
+      <button>Current Location</button>
+    </div>
+  </body>
+</html>
