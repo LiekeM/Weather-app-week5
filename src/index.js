@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 let apiKey = "7059cb165caa3316bff682d263a01b1e";
+=======
+import "./styles.css";
+
+const apiKey = "7059cb165caa3316bff682d263a01b1e";
+>>>>>>> parent of 8a676ed (Updated html)
 
 function displayWeather(response) {
   let cityElement = document.querySelector("#current-city");
