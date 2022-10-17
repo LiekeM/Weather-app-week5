@@ -30,6 +30,10 @@ button {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
+img {
+  width: 40px;
+}
+
 a:visited {
   color: #017bfe;
 }

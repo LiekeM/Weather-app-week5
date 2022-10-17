@@ -6,12 +6,17 @@ function displayWeather(response) {
   let weatherElement = document.querySelector("#weather");
   let windElement = document.querySelector("#wind");
   let humidityElement = document.querySelector("#humidity");
+  let iconElement = document.querySelector("#icon");
   temperatureElement.innerHTML = Math.round(response.data.main.temp) + " °C";
   console.log(response);
   weatherElement.innerHTML = response.data.weather[0].description;
   cityElement.innerHTML = response.data.name;
-  windElement.innerHTML = " wind speed: " + response.data.wind.speed;
-  humidityElement.innerHTML = "humidity: " + response.data.main.humidity;
+  windElement.innerHTML = " wind speed: " + response.data.wind.speed + " km/h";
+  humidityElement.innerHTML = "humidity: " + response.data.main.humidity + " %";
+  iconElement.setAttribute(
+    "src",
+    "http://openweathermap.org/img/wn/10d@2x.png"
+  );
 }
 
 function updateDisplayWeather(city) {
