@@ -7,6 +7,8 @@ function displayWeather(response) {
   let windElement = document.querySelector("#wind");
   let humidityElement = document.querySelector("#humidity");
   let iconElement = document.querySelector("#icon");
+  let emojiIcon = document.querySelector("#emoji-icon");
+  let emojiTemp = document.querySelector("#emoji-temp");
   temperatureElement.innerHTML = Math.round(response.data.main.temp) + " °C";
   console.log(response);
   weatherElement.innerHTML = response.data.weather[0].description;
@@ -17,6 +19,57 @@ function displayWeather(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  emojiIcon.innerHTML = getEmojiFromIconCode(response.data.weather[0].icon);
+  emojiTemp.innerHTML = getEmojiFromTemp(response.data.main.temp);
+}
+
+function getEmojiFromTemp(temp) {
+  if (temp <= 0) {
+    return "🧤";
+  }
+  if (temp > 0 && temp <= 10) {
+    return "🧥";
+  }
+  if (temp > 10 && temp <= 18) {
+    return "👖";
+  }
+  if (temp > 18 && temp <= 25) {
+    return "👕";
+  }
+  if (temp > 25 && temp <= 32) {
+    return "🩳";
+  } else {
+    return "👙";
+  }
+}
+
+function getEmojiFromIconCode(iconCode) {
+  const codeMap = {
+    "01d": "🕶",
+    "02d": "🧢",
+    "03d": "🌂",
+    "04d": "🌂",
+    "09d": "☂️",
+    "10d": "☂️",
+    "11d": "🥽",
+    "13d": "⛸",
+    "50d": "🦺",
+    "01n": "👡",
+    "02n": "👡",
+    "03n": "🌂",
+    "04n": "🌂",
+    "09n": "☂️",
+    "10n": "☂️",
+    "11n": "🥽",
+    "13n": "⛸",
+    "50n": "🔦",
+  };
+  // let code = iconCode.replace(/[nd]/g, "");
+  // console.log(code);
+  // let dayOrNight = iconCode.replace(/\d/g, "");
+  // console.log(dayOrNight);
+
+  return codeMap[iconCode];
 }
 
 function updateDisplayWeather(city) {
