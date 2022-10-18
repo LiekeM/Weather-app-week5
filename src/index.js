@@ -12,7 +12,7 @@ function displayWeather(response) {
   temperatureElement.innerHTML = Math.round(response.data.main.temp) + " °C";
   console.log(response);
   weatherElement.innerHTML = response.data.weather[0].description;
-  cityElement.innerHTML = response.data.name;
+  cityElement.innerHTML = "today in " + response.data.name;
   windElement.innerHTML = " wind speed: " + response.data.wind.speed + " km/h";
   humidityElement.innerHTML = "humidity: " + response.data.main.humidity + " %";
   iconElement.setAttribute(
@@ -50,16 +50,16 @@ function getEmojiFromIconCode(iconCode) {
     "03d": "🌂",
     "04d": "🌂",
     "09d": "☂️",
-    "10d": "☂️",
+    "10d": "☔️",
     "11d": "🥽",
     "13d": "⛸",
     "50d": "🦺",
     "01n": "👡",
-    "02n": "👡",
+    "02n": "👠",
     "03n": "🌂",
     "04n": "🌂",
     "09n": "☂️",
-    "10n": "☂️",
+    "10n": "☔️",
     "11n": "🥽",
     "13n": "⛸",
     "50n": "🔦",

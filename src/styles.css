@@ -64,25 +64,52 @@ button:hover {
 
 .currentCity {
   font-family: "Roboto Mono", monospace;
+  /* font-family: "DynaPuff", cursive; */
+  color: #232d37;
   font-size: 50px;
+  text-shadow: 0px 8px 13px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 0px 30px;
+  box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
 }
 
 .currentTemp {
   font-family: "Roboto Mono", monospace;
   font-size: 60px;
 }
-.wind {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+
+#time-col {
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
 }
-.humidity {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+
+#weather-col {
+  font-family: "Roboto Mono", monospace;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 0px 30px;
+  box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
+}
+
+#icon-col {
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
+}
+/* .humidity {
+  font-family: "Roboto Mono", monospace;
 }
 .weather {
+  font-family: "Roboto Mono", monospace;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-}
+} */
 
 .about {
   position: fixed;
@@ -103,6 +130,8 @@ button:hover {
   font-family: "DynaPuff", cursive;
   font-size: 65px;
   color: #232d37;
+  display: inline-block;
+  text-shadow: 0px 8px 13px rgba(0, 0, 0, 0.1);
 }
 
 .container {
@@ -118,6 +147,7 @@ button:hover {
   justify-content: center;
   padding-top: 20px;
   padding-bottom: 20px;
+  display: inline-block;
 }
 
 .city {
@@ -126,7 +156,7 @@ button:hover {
   font-family: "Roboto Mono", monospace;
   background-color: white;
   border-radius: 20px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
 }
 
 .days {
@@ -136,6 +166,14 @@ button:hover {
   background-color: white;
   border-radius: 20px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.emoji-container {
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 0px 30px;
+  box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
 }
 
 .row-container {
@@ -152,10 +190,23 @@ button:hover {
   font-size: 16px;
 }
 
+.search-container {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 20px;
+  padding-top: 20px;
+  margin: 0px 40px;
+}
+
 .box {
   background-color: white;
   border-radius: 20px;
   padding: 40px;
   margin: 40px 35px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.row {
+  padding: 50px;
 }
