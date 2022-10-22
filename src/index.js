@@ -9,7 +9,7 @@ function displayWeather(response) {
   let iconElement = document.querySelector("#icon");
   let emojiIcon = document.querySelector("#emoji-icon");
   let emojiTemp = document.querySelector("#emoji-temp");
-  temperatureElement.innerHTML = Math.round(response.data.main.temp) + " °C";
+  temperatureElement.innerHTML = Math.round(response.data.main.temp);
   console.log(response);
   weatherElement.innerHTML = response.data.weather[0].description;
   cityElement.innerHTML = "today in " + response.data.name;
@@ -113,7 +113,7 @@ let days = [
   "Saturday",
 ];
 
-let h3 = document.querySelector("h3");
+let currentTime = document.querySelector("currentTime");
 let day = days[currentDate.getDay()];
 let hours = addZero(currentDate.getHours());
 let minutes = addZero(currentDate.getMinutes());
@@ -125,4 +125,30 @@ function addZero(convert) {
     return convert;
   }
 }
-h3.innerHTML = `${day}, ${hours}:${minutes}`;
+currentTime.innerHTML = `${day}, ${hours}:${minutes}`;
+
+function displayFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#current-temp");
+  let fahrenheitTemperature = (temperatureElement.innerHTML * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", displayFahrenheit);
+
+// function degreesToFahrenheit(event) {
+//   event.preventDefault();
+//   let h4 = document.querySelector("#current-temp");
+//   currentTemp.innerHTML = 84;
+// }
+// let tempF = document.querySelector("#fahrenheit");
+// tempF.addEventListener("click", degreesToFahrenheit);
+
+// function degreesToCelcius(event) {
+//   event.preventDefault();
+//   let h4 = document.querySelector("#current-temp");
+//   currentTemp.innerHTML = 29;
+// }
+// let tempC = document.querySelector("#celcius");
+// tempC.addEventListener("click", degreesToCelcius);
