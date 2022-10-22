@@ -34,7 +34,8 @@
 
       <div class="row">
         <div class="col" id="time-col">
-          <h3 id="current-time" class="currentTime">Sunday 00:00</h3>
+          <br />
+          <div id="current-time" class="currentTime">Sunday 00:00</div>
           <div id="current-temp" class="currentTemp">
             °C
             <a href="#" id="fahrenheit"></a>
@@ -46,24 +47,25 @@
           <div id="wind" class="wind">Wind speed</div>
           <div id="humidity" class="humidity">Humidity</div>
         </div>
-        <div class="col" id="icon-col">
+        <div class="col" id="search-col">
+          <form id="city-form">
+            <input
+              type="text"
+              id="input-city"
+              placeholder="enter city"
+            /><br /><br />
+            <input type="submit" name="submit" value="Search" id="submit" />
+          </form>
           <br />
-          <img src="" id="icon" />
+          <button>Current Location</button>
         </div>
       </div>
 
-      <div class="search-container">
-        <form id="city-form">
-          <input
-            type="text"
-            id="input-city"
-            placeholder="enter city"
-          /><br /><br />
-          <input type="submit" name="submit" value="Search" id="submit" />
-        </form>
+      <div class="col" id="icon-col">
         <br />
-        <button>Current Location</button>
+        <img src="" id="icon" />
       </div>
+
       <br />
       <br />
       <a href="https://github.com/LiekeM/Weather-app-week5"
