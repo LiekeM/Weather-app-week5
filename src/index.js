@@ -113,7 +113,7 @@ let days = [
   "Saturday",
 ];
 
-let currentTime = document.querySelector("currentTime");
+let currentTime = document.querySelector(".currentTime");
 let day = days[currentDate.getDay()];
 let hours = addZero(currentDate.getHours());
 let minutes = addZero(currentDate.getMinutes());
