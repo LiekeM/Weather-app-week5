@@ -9,7 +9,10 @@ function displayWeather(response) {
   let iconElement = document.querySelector("#icon");
   let emojiIcon = document.querySelector("#emoji-icon");
   let emojiTemp = document.querySelector("#emoji-temp");
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+
+  celciusTemperature = response.data.main.temp;
+
+  temperatureElement.innerHTML = Math.round(celciusTemperature);
   console.log(response);
   weatherElement.innerHTML = response.data.weather[0].description;
   cityElement.innerHTML = "today in " + response.data.name;
@@ -130,13 +133,25 @@ currentTime.innerHTML = `${day}, ${hours}:${minutes}`;
 function displayFahrenheit(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#current-temp");
-  let fahrenheitTemperature = (temperatureElement.innerHTML * 9) / 5 + 32;
+  let fahrenheitTemperature = (celciusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
+
+function displayCelcius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#current-temp");
+  temperatureElement.innerHTML = Math.round(celciusTemperature);
+}
+
+let celciusTemperature = null;
 
 let fahrenheitLink = document.querySelector("#fahrenheit");
 fahrenheitLink.addEventListener("click", displayFahrenheit);
 
+let celciusLink = document.querySelector("#celcius");
+celciusLink.addEventListener("click", displayCelcius);
+
+searchCity("");
 // function degreesToFahrenheit(event) {
 //   event.preventDefault();
 //   let h4 = document.querySelector("#current-temp");
