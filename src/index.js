@@ -30,16 +30,19 @@ function getEmojiFromTemp(temp) {
   if (temp <= 0) {
     return "🧤";
   }
-  if (temp > 0 && temp <= 10) {
+  if (temp > 0 && temp <= 8) {
+    return "🧣";
+  }
+  if (temp > 8 && temp <= 14) {
     return "🧥";
   }
-  if (temp > 10 && temp <= 18) {
+  if (temp > 14 && temp <= 20) {
     return "👖";
   }
-  if (temp > 18 && temp <= 25) {
+  if (temp > 20 && temp <= 25) {
     return "👕";
   }
-  if (temp > 25 && temp <= 32) {
+  if (temp > 25 && temp <= 30) {
     return "🩳";
   } else {
     return "👙";
@@ -152,18 +155,3 @@ let celciusLink = document.querySelector("#celcius");
 celciusLink.addEventListener("click", displayCelcius);
 
 searchCity("");
-// function degreesToFahrenheit(event) {
-//   event.preventDefault();
-//   let h4 = document.querySelector("#current-temp");
-//   currentTemp.innerHTML = 84;
-// }
-// let tempF = document.querySelector("#fahrenheit");
-// tempF.addEventListener("click", degreesToFahrenheit);
-
-// function degreesToCelcius(event) {
-//   event.preventDefault();
-//   let h4 = document.querySelector("#current-temp");
-//   currentTemp.innerHTML = 29;
-// }
-// let tempC = document.querySelector("#celcius");
-// tempC.addEventListener("click", degreesToCelcius);

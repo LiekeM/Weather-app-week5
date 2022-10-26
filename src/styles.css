@@ -108,6 +108,17 @@ h4 {
   margin: 30px;
   box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
 }
+
+#weatherForecastCol {
+  background-color: white;
+  border-radius: 5px;
+  margin: 30px;
+  box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
+}
+
+.weather-forecast-temp-min {
+  opacity: 0.7;
+}
 /* .humidity {
   font-family: "Roboto Mono", monospace;
 }
