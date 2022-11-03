@@ -20,10 +20,10 @@ function displayWeather(response) {
     " wind speed: " + response.data.daily[0].wind.speed + " km/h";
   humidityElement.innerHTML =
     "humidity: " + response.data.daily[0].temperature.humidity + " %";
-  iconElement.setAttribute(
-    "src",
-    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[0].condition.icon}.png`
-  );
+  // iconElement.setAttribute(
+  //   "src",
+  //   `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[0].condition.icon}.png`
+  // );
   emojiIcon.innerHTML = getEmojiFromIconCode(
     response.data.daily[0].condition.icon
   );
@@ -41,20 +41,23 @@ function displayForecast(response) {
   let weatherForecfastHTML = `<div class="row">`;
 
   forecast.forEach(function (forecastDay, index) {
-    if (index < 6) {
+    if (index < 5) {
       weatherForecfastHTML =
         weatherForecfastHTML +
         `
       
         <div class="col-2">
           <div class="weather-forecat-date">${formatDay(forecastDay.time)}</div>
-
-          <img
-            src="${forecastDay.condition.icon_url}"
-            alt=""
-            width="20"
-          />
-          <br />
+          <br/>
+           <div class="emojiContainerForecast">
+            <div class="emoji2" id="emoji-temp-forecast">${getEmojiFromTemp(
+              forecastDay.temperature.day
+            )}
+            &nbsp;+&nbsp; 
+            ${getEmojiFromIconCode(forecastDay.condition.icon)}
+            </div>
+          </div>
+      <br/>
           <div class="weather-forecast-temp">
             <span class="weather-forecast-temp-max">${Math.round(
               forecastDay.temperature.maximum

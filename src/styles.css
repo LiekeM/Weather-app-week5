@@ -102,18 +102,25 @@ h4 {
   box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
 }
 
-#icon-col {
+/* .col {
   background-color: white;
   border-radius: 5px;
+  margin: 30px;
+  box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
+} */
+
+.weather-forecast-col {
+  font-size: 20px;
+  font-family: "Roboto Mono", monospace;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
   margin: 30px;
   box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
 }
 
-#weatherForecastCol {
-  background-color: white;
-  border-radius: 5px;
-  margin: 30px;
-  box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
+.emojiContainerForecast {
+  font-size: 25px;
 }
 
 .weather-forecast-temp-min {
