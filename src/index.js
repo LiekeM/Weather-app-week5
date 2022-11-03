@@ -1,4 +1,4 @@
-let apiKey = "7059cb165caa3316bff682d263a01b1e";
+let apiKey = "ca3bao1ae6a5d30ff038901b133ffc4t";
 
 function displayWeather(response) {
   let cityElement = document.querySelector("#current-city");
@@ -10,20 +10,21 @@ function displayWeather(response) {
   let emojiIcon = document.querySelector("#emoji-icon");
   let emojiTemp = document.querySelector("#emoji-temp");
 
-  celciusTemperature = response.data.main.temp;
+  celciusTemperature = response.data.temperature.current;
 
   temperatureElement.innerHTML = Math.round(celciusTemperature);
   console.log(response);
-  weatherElement.innerHTML = response.data.weather[0].description;
-  cityElement.innerHTML = "today in " + response.data.name;
+  weatherElement.innerHTML = response.data.condition.description;
+  cityElement.innerHTML = "today in " + response.data.city;
   windElement.innerHTML = " wind speed: " + response.data.wind.speed + " km/h";
-  humidityElement.innerHTML = "humidity: " + response.data.main.humidity + " %";
+  humidityElement.innerHTML =
+    "humidity: " + response.data.temperature.humidity + " %";
   iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
-  emojiIcon.innerHTML = getEmojiFromIconCode(response.data.weather[0].icon);
-  emojiTemp.innerHTML = getEmojiFromTemp(response.data.main.temp);
+  emojiIcon.innerHTML = getEmojiFromIconCode(response.data.condition.icon);
+  emojiTemp.innerHTML = getEmojiFromTemp(response.data.temperature.current);
 }
 
 function displayForecast() {
@@ -84,24 +85,24 @@ function getEmojiFromTemp(temp) {
 
 function getEmojiFromIconCode(iconCode) {
   const codeMap = {
-    "01d": "🕶",
-    "02d": "🧢",
-    "03d": "🌂",
-    "04d": "🌂",
-    "09d": "☂️",
-    "10d": "☔️",
-    "11d": "🥽",
-    "13d": "⛸",
-    "50d": "🦺",
-    "01n": "👡",
-    "02n": "👡",
-    "03n": "🌂",
-    "04n": "🌂",
-    "09n": "☂️",
-    "10n": "☔️",
-    "11n": "🥽",
-    "13n": "⛸",
-    "50n": "🔦",
+    "clear-sky-day": "🕶",
+    "few-clouds-day": "🧢",
+    "scattered-clouds-day": "📷",
+    "broken-clouds-day": "🌂",
+    "shower-rain-day": "☂️",
+    "rain-day": "☔️",
+    "thunderstorm-day": "🥽",
+    "snow-day": "⛸",
+    "mist-day": "🦺",
+    "clear-sky-night": "👡",
+    "few-clouds-night": "👞",
+    "scattered-clouds-night": "👢",
+    "broken-clouds-night": "🌂",
+    "shower-rain-night": "☂️",
+    "rain-night": "☔️",
+    "thunderstorm-night": "🥽",
+    "snow-night": "⛸",
+    "mist-night": "🔦",
   };
   // let code = iconCode.replace(/[nd]/g, "");
   // console.log(code);
@@ -112,8 +113,8 @@ function getEmojiFromIconCode(iconCode) {
 }
 
 function updateDisplayWeather(city) {
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
-  axios.get(`${apiUrl}&appid=${apiKey}`).then(displayWeather);
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&units=metric`;
+  axios.get(`${apiUrl}&key=${apiKey}`).then(displayWeather);
 }
 
 function searchCity(event) {
@@ -127,8 +128,8 @@ searchForm.addEventListener("submit", searchCity);
 function currentLocation(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-  axios.get(`${apiUrl}&appid=${apiKey}`).then(displayWeather);
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&units=metric`;
+  axios.get(`${apiUrl}&key=${apiKey}`).then(displayWeather);
 }
 
 function updateGeoLoc() {
