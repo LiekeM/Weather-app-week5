@@ -10,50 +10,64 @@ function displayWeather(response) {
   let emojiIcon = document.querySelector("#emoji-icon");
   let emojiTemp = document.querySelector("#emoji-temp");
 
-  celciusTemperature = response.data.temperature.current;
+  celciusTemperature = response.data.daily[0].temperature.day;
 
   temperatureElement.innerHTML = Math.round(celciusTemperature);
   console.log(response);
-  weatherElement.innerHTML = response.data.condition.description;
+  weatherElement.innerHTML = response.data.daily[0].condition.description;
   cityElement.innerHTML = "today in " + response.data.city;
-  windElement.innerHTML = " wind speed: " + response.data.wind.speed + " km/h";
+  windElement.innerHTML =
+    " wind speed: " + response.data.daily[0].wind.speed + " km/h";
   humidityElement.innerHTML =
-    "humidity: " + response.data.temperature.humidity + " %";
+    "humidity: " + response.data.daily[0].temperature.humidity + " %";
   iconElement.setAttribute(
     "src",
-    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[0].condition.icon}.png`
   );
-  emojiIcon.innerHTML = getEmojiFromIconCode(response.data.condition.icon);
-  emojiTemp.innerHTML = getEmojiFromTemp(response.data.temperature.current);
+  emojiIcon.innerHTML = getEmojiFromIconCode(
+    response.data.daily[0].condition.icon
+  );
+  emojiTemp.innerHTML = getEmojiFromTemp(
+    response.data.daily[0].temperature.day
+  );
+
+  return response;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#weatherForecastCol");
 
   let weatherForecfastHTML = `<div class="row">`;
-  let days = ["Friday", "Saturday", "Sunday", "Monday", "Tuesday"];
-  days.forEach(function (day) {
-    weatherForecfastHTML =
-      weatherForecfastHTML +
-      `
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      weatherForecfastHTML =
+        weatherForecfastHTML +
+        `
       
         <div class="col-2">
-          <div class="weather-forecat-date">${day}</div>
+          <div class="weather-forecat-date">${formatDay(forecastDay.time)}</div>
 
           <img
-            src="http://openweathermap.org/img/wn/10d@2x.png"
+            src="${forecastDay.condition.icon_url}"
             alt=""
-            width="30"
+            width="20"
           />
           <br />
           <div class="weather-forecast-temp">
-            <span class="weather-forecast-temp-max">22°C</span>
-            <span class="weather-forecast-temp-min">17°C</span>
+            <span class="weather-forecast-temp-max">${Math.round(
+              forecastDay.temperature.maximum
+            )}°C</span>
+            <span class="weather-forecast-temp-min">${Math.round(
+              forecastDay.temperature.minimum
+            )}°C</span>
           </div>
         </div>
     
    
     `;
+    }
   });
 
   weatherForecfastHTML = weatherForecfastHTML + "</div>";
@@ -113,8 +127,11 @@ function getEmojiFromIconCode(iconCode) {
 }
 
 function updateDisplayWeather(city) {
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&units=metric`;
-  axios.get(`${apiUrl}&key=${apiKey}`).then(displayWeather);
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&units=metric`;
+  axios
+    .get(`${apiUrl}&key=${apiKey}`)
+    .then(displayWeather)
+    .then(displayForecast);
 }
 
 function searchCity(event) {
@@ -128,8 +145,11 @@ searchForm.addEventListener("submit", searchCity);
 function currentLocation(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&units=metric`;
-  axios.get(`${apiUrl}&key=${apiKey}`).then(displayWeather);
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${longitude}&lat=${latitude}&units=metric`;
+  axios
+    .get(`${apiUrl}&key=${apiKey}`)
+    .then(displayWeather)
+    .then(displayForecast);
 }
 
 function updateGeoLoc() {
@@ -167,6 +187,12 @@ function addZero(convert) {
 }
 currentTime.innerHTML = `${day}, ${hours}:${minutes}`;
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  return days[day];
+}
+
 function displayFahrenheit(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#current-temp");
@@ -188,4 +214,4 @@ fahrenheitLink.addEventListener("click", displayFahrenheit);
 let celciusLink = document.querySelector("#celcius");
 celciusLink.addEventListener("click", displayCelcius);
 
-displayForecast();
+// displayForecast(response);
