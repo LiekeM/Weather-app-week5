@@ -26,6 +26,39 @@ function displayWeather(response) {
   emojiTemp.innerHTML = getEmojiFromTemp(response.data.main.temp);
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#weatherForecastCol");
+
+  let weatherForecfastHTML = `<div class="row">`;
+  let days = ["Friday", "Saturday", "Sunday", "Monday", "Tuesday"];
+  days.forEach(function (day) {
+    weatherForecfastHTML =
+      weatherForecfastHTML +
+      `
+      
+        <div class="col-2">
+          <div class="weather-forecat-date">${day}</div>
+
+          <img
+            src="http://openweathermap.org/img/wn/10d@2x.png"
+            alt=""
+            width="30"
+          />
+          <br />
+          <div class="weather-forecast-temp">
+            <span class="weather-forecast-temp-max">22°C</span>
+            <span class="weather-forecast-temp-min">17°C</span>
+          </div>
+        </div>
+    
+   
+    `;
+  });
+
+  weatherForecfastHTML = weatherForecfastHTML + "</div>";
+  forecastElement.innerHTML = weatherForecfastHTML;
+}
+
 function getEmojiFromTemp(temp) {
   if (temp <= 0) {
     return "🧤";
@@ -61,7 +94,7 @@ function getEmojiFromIconCode(iconCode) {
     "13d": "⛸",
     "50d": "🦺",
     "01n": "👡",
-    "02n": "👠",
+    "02n": "👡",
     "03n": "🌂",
     "04n": "🌂",
     "09n": "☂️",
@@ -154,4 +187,4 @@ fahrenheitLink.addEventListener("click", displayFahrenheit);
 let celciusLink = document.querySelector("#celcius");
 celciusLink.addEventListener("click", displayCelcius);
 
-searchCity("");
+displayForecast();
