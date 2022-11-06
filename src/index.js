@@ -6,7 +6,6 @@ function displayWeather(response) {
   let weatherElement = document.querySelector("#weather");
   let windElement = document.querySelector("#wind");
   let humidityElement = document.querySelector("#humidity");
-  let iconElement = document.querySelector("#icon");
   let emojiIcon = document.querySelector("#emoji-icon");
   let emojiTemp = document.querySelector("#emoji-temp");
 
@@ -20,10 +19,7 @@ function displayWeather(response) {
     " wind speed: " + response.data.daily[0].wind.speed + " km/h";
   humidityElement.innerHTML =
     "humidity: " + response.data.daily[0].temperature.humidity + " %";
-  // iconElement.setAttribute(
-  //   "src",
-  //   `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[0].condition.icon}.png`
-  // );
+
   emojiIcon.innerHTML = getEmojiFromIconCode(
     response.data.daily[0].condition.icon
   );
@@ -36,33 +32,33 @@ function displayWeather(response) {
 
 function displayForecast(response) {
   let forecast = response.data.daily;
-  let forecastElement = document.querySelector("#weatherForecastCol");
+  let forecastElement = document.querySelector("#weather-forecast-col");
 
   let weatherForecfastHTML = `<div class="row">`;
 
   forecast.forEach(function (forecastDay, index) {
-    if (index < 5) {
+    if (index < 6) {
       weatherForecfastHTML =
         weatherForecfastHTML +
         `
       
         <div class="col-2">
-          <div class="weather-forecat-date">${formatDay(forecastDay.time)}</div>
-          <br/>
+          <div class="weatherForecastDate">${formatDay(forecastDay.time)}</div>
+          
            <div class="emojiContainerForecast">
             <div class="emoji2" id="emoji-temp-forecast">${getEmojiFromTemp(
               forecastDay.temperature.day
             )}
-            &nbsp;+&nbsp; 
+            + 
             ${getEmojiFromIconCode(forecastDay.condition.icon)}
             </div>
           </div>
-      <br/>
-          <div class="weather-forecast-temp">
-            <span class="weather-forecast-temp-max">${Math.round(
+      
+          <div class="weatherForecastTemp">
+            <span class="weatherForecastTempMax">${Math.round(
               forecastDay.temperature.maximum
             )}°C</span>
-            <span class="weather-forecast-temp-min">${Math.round(
+            <span class="weatherForecastTempMin">${Math.round(
               forecastDay.temperature.minimum
             )}°C</span>
           </div>
@@ -90,10 +86,10 @@ function getEmojiFromTemp(temp) {
   if (temp > 14 && temp <= 20) {
     return "👖";
   }
-  if (temp > 20 && temp <= 25) {
+  if (temp > 20 && temp <= 24) {
     return "👕";
   }
-  if (temp > 25 && temp <= 30) {
+  if (temp > 24 && temp <= 30) {
     return "🩳";
   } else {
     return "👙";
@@ -121,10 +117,6 @@ function getEmojiFromIconCode(iconCode) {
     "snow-night": "⛸",
     "mist-night": "🔦",
   };
-  // let code = iconCode.replace(/[nd]/g, "");
-  // console.log(code);
-  // let dayOrNight = iconCode.replace(/\d/g, "");
-  // console.log(dayOrNight);
 
   return codeMap[iconCode];
 }

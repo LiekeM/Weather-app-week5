@@ -1,38 +1,21 @@
 body {
-  padding-top: 20px;
+  background-color: #1a2126;
 }
 
-.currentTime {
-  font-size: 20px;
+h4 {
   font-family: "Roboto Mono", monospace;
-}
-
-footer {
-  font-size: 22px;
-  font-family: monospace;
-  font-weight: bold;
-  position: fixed;
-  bottom: 10px;
-  width: 100%;
-  left: 0;
-  padding: 10px;
-  background-color: #c5f0a4;
-  color: #017bfe;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  font-size: 60px;
 }
 
 button {
   color: white;
-  width: 150px;
-  height: 50px;
+  width: 220px;
+  height: 40px;
   border: none;
   border-radius: 10px;
   background: #007bff;
+  margin-top: 10px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-}
-
-img {
-  width: 100px;
 }
 
 a:visited {
@@ -43,29 +26,50 @@ button:hover {
   cursor: pointer;
 }
 
-#submit {
-  color: #fff;
-  font-size: 20px;
-  width: 150px;
-  height: 50px;
-  border: none;
-  border-radius: 10px;
-  background: #00cc00;
+.container {
+  background-color: #e4e7f9;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 12px;
+  padding-bottom: 30px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .header {
-  font-size: 60px;
+  font-size: 85px;
   font-family: "DynaPuff", cursive;
   color: #ff8b00;
-  padding-top: 50px;
-  padding-bottom: 20px;
+  padding-top: 30px;
+  padding-bottom: 18px;
   text-shadow: 0px 8px 13px rgba(0, 0, 0, 0.1);
+}
+
+.submit {
+  color: #fff;
+  font-size: 18px;
+  width: 220px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background: #00cc00;
+  margin-top: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.box {
+  background-color: white;
+  border-radius: 20px;
+  padding: 40px;
+  margin: 40px 35px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.row {
+  margin: 20px 30px;
 }
 
 .currentCity {
   font-family: "Roboto Mono", monospace;
-  /* font-family: "DynaPuff", cursive; */
   color: #232d37;
   font-size: 50px;
   text-shadow: 0px 8px 13px rgba(0, 0, 0, 0.1);
@@ -76,25 +80,12 @@ button:hover {
   box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
 }
 
-h4 {
-  font-family: "Roboto Mono", monospace;
-  font-size: 60px;
-}
-
 .currentTemp {
-  font-family: "Roboto Mono", monospace;
-  font-size: 60px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 65px;
 }
 
-#time-col {
-  background-color: white;
-  border-radius: 5px;
-  padding: 10px;
-  box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
-}
-
-#weather-col {
-  font-family: "Roboto Mono", monospace;
+.emoji-container {
   background-color: white;
   border-radius: 5px;
   padding: 10px;
@@ -102,52 +93,8 @@ h4 {
   box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
 }
 
-/* .col {
-  background-color: white;
-  border-radius: 5px;
-  margin: 30px;
-  box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
-} */
-
-.weather-forecast-col {
-  font-size: 20px;
-  font-family: "Roboto Mono", monospace;
-  background-color: white;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 30px;
-  box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
-}
-
 .emojiContainerForecast {
   font-size: 25px;
-}
-
-.weather-forecast-temp-min {
-  opacity: 0.7;
-}
-/* .humidity {
-  font-family: "Roboto Mono", monospace;
-}
-.weather {
-  font-family: "Roboto Mono", monospace;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-} */
-
-.about {
-  position: fixed;
-  top: 30px;
-  left: 10px;
-  background-color: #ffffff;
-}
-
-.about-info {
-  font-size: 22px;
-  font-family: "Roboto Mono", monospace;
-  color: blue;
-  margin: 40px 35px;
-  border-radius: 20px;
 }
 
 .emoji {
@@ -158,20 +105,10 @@ h4 {
   text-shadow: 0px 8px 13px rgba(0, 0, 0, 0.1);
 }
 
-.container {
-  background-color: #f4eeff;
-  border-radius: 5px;
-  text-align: center;
-  margin-top: 20px;
-  padding-bottom: 50px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-}
-
-.form-inline {
-  justify-content: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  display: inline-block;
+.emoji2 {
+  font-family: "DynaPuff", cursive;
+  font-size: 40px;
+  padding: 6px 0px 6px 0px;
 }
 
 .city {
@@ -192,43 +129,61 @@ h4 {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.emoji-container {
+.currentTime {
+  font-size: 20px;
+  font-family: "Roboto Mono", monospace;
+}
+
+.inputCity {
+  border-color: #777777;
+  border-style: ridge;
+  border-width: 1px;
+  width: 220px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.footer {
+  font-size: 14px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.weatherForecastTempMin {
+  opacity: 0.7;
+}
+
+.weatherForecastCol {
+  font-size: 20px;
+  font-family: "Roboto Mono", monospace;
   background-color: white;
   border-radius: 5px;
-  padding: 10px;
-  margin: 0px 30px;
+  padding: 1px;
+  margin: 10px 30px 10px 30px;
   box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
-}
-
-.row-container {
-  font-family: "Roboto Mono", monospace;
-  font-size: 30px;
-  padding: 10px;
-  margin: 40px 35px;
-  background-color: white;
-  border-radius: 20px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-}
-
-.row-container-date {
-  font-size: 20px;
+  text-align: center;
 }
 
 #search-col {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: white;
   border-radius: 5px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   padding: 20px 0px 20px 0px;
 }
 
-.box {
+#time-col {
   background-color: white;
-  border-radius: 20px;
-  padding: 40px;
-  margin: 40px 35px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
 }
 
-.row {
-  margin: 20px 30px;
+#weather-col {
+  font-size: 18px;
+  font-family: "Roboto Mono", monospace;
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 0px 30px;
+  box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
 }

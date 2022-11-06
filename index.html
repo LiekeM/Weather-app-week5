@@ -11,12 +11,14 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@500&family=Roboto+Mono:wght@300&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Comfortaa:wght@700&family=Dosis:wght@700&family=DynaPuff:wght@500&family=Montserrat&family=Righteous&family=Roboto+Mono:wght@300&family=Secular+One&family=Shadows+Into+Light&family=Shrikhand&family=Titan+One&display=swap"
       rel="stylesheet"
     />
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link href="src/styles.css" rel="stylesheet" type="text/css" />
   </head>
@@ -37,11 +39,6 @@
           <br />
           <span id="current-time" class="currentTime">Sunday 00:00</span>
 
-          <!-- <div id="current-temp" class="currentTemp">
-            °C
-            <a href="#" id="fahrenheit"></a>
-          </div> -->
-
           <div>
             <span id="current-temp" class="currentTemp"></span>
             <span class="units"
@@ -53,7 +50,6 @@
 
         <div class="col" id="weather-col">
           <br />
-          <br />
           <div id="weather" class="weather">Weather</div>
           <div id="wind" class="wind">Wind speed</div>
           <div id="humidity" class="humidity">Humidity</div>
@@ -63,44 +59,32 @@
             <input
               type="text"
               id="input-city"
-              placeholder="enter city"
-            /><br /><br />
-            <input type="submit" name="submit" value="Search" id="submit" />
+              class="inputCity"
+              placeholder="  enter city"
+            /><br />
+            <input
+              type="submit"
+              name="submit"
+              value="Search"
+              class="submit"
+              id="submit"
+            />
           </form>
-          <br />
+
           <button>Current Location</button>
         </div>
       </div>
 
-      <div class="weather-forecast-col" id="weatherForecastCol">
-        <!-- <div class="row">
-          <div class="col-2">
-            <div class="weather-forecat-date">Monday</div>
+      <div class="weatherForecastCol" id="weather-forecast-col"></div>
 
-            <img
-              src="http://openweathermap.org/img/wn/10d@2x.png"
-              alt=""
-              width="30"
-            />
-            <br />
-            <div class="weather-forecast-temp">
-              <span class="weather-forecast-temp-max">22°C</span>
-              <span class="weather-forecast-temp-min">17°C</span>
-            </div>
-          </div>
-        </div> -->
+      <br />
+      <br />
+      <div class="footer">
+        <a href="https://github.com/LiekeM/Weather-app-week5"
+          >Open Source Code</a
+        >
+        by Lieke van der Made
       </div>
-
-      <!-- <div class="col" id="icon-col">
-        <br />
-        <img src="" id="icon" />
-      </div> -->
-
-      <br />
-      <br />
-      <a href="https://github.com/LiekeM/Weather-app-week5"
-        >https://github.com/LiekeM/Weather-app-week5</a
-      >
     </div>
     <script src="src/index.js"></script>
   </body>
